@@ -1,0 +1,556 @@
+@charset "utf-8";
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	background: transparent;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+body,
+input,
+textarea {
+	font-family:'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+}
+
+body {
+	background: #ccc;
+}
+
+a:link {
+	color: #666;
+}
+a:visited {
+	color: #656;
+}
+a:active,
+a:hover {
+	color: #999;
+}
+
+#wrap {
+	margin: 0px 0px 0px 100px;
+	width: 1200px;
+	border-top: solid #fff 1px;
+	border-left: solid #999 1px;
+	border-right: solid #999 1px;
+	border-bottom: solid #fff 1px;
+	background: #fff;
+}
+
+/**
+* タイトルロゴ
+*/
+#top_title {
+	margin: 10px 0px 10px 25px;
+	width: 450px;
+	font-size: 1.2em;
+/*	border: solid #999 1px; */
+}
+
+#top_title_str {
+	font-size: 0.8em;
+}
+
+/**
+* カラーグローブとマンセルカラーチャート
+**/
+#wrap_content {
+	position:relative;
+	margin: 5px 10px 10px 25px;
+	width: 900px;
+	border: solid #000 1px; 
+	background: #000;	
+}
+
+/* チャートモード変更ボタン */
+#chartmodeswitch {
+	margin: 20px 0px 0px 40px;
+	width: 450px;
+/*	border: solid #999 1px; */
+}
+
+/* 色相環バー */
+.huecircle {
+	position:relative;
+	margin: 10px 0px 10px 40px;
+	width: 840px;
+	height: 20px;
+/*	border: solid #999 1px; */
+}
+
+/* 色相環バー各セル */
+.hue {
+	margin: 0px 2px 0px 0px;
+	width: 19px;
+	height: 19px;
+	float: left;
+	font-size: 0.6em;
+	cursor: pointer;
+}
+
+/* 色情報ラベルとチャート本体 */
+#wrap_main {
+	position:relative;
+	margin: 10px 0px 10px 40px;
+	width: 840px;
+	border: solid #000 1px;   
+}
+
+/* 色相名ラベル */
+#huename {
+	margin: 5px 0px 10px 0px;
+	width: 840px;
+/*	border: solid #999 1px; */
+	font-size: 0.9em;
+	text-align: right;
+	color: #bbb;
+}
+
+/* 色情報ラベル */
+#hvc_str {
+	position: absolute;
+	top: 20px;
+	right: 0px;
+	width: 180px;
+	height: 50px;
+/*	border: solid #999 1px; */
+	font-size: 0.9em;
+	text-align: right;
+	color: #bbb;
+}
+
+/* チャート本体 */
+#wrap_chart {
+	position:relative;
+	margin: 20px 0px 10px 60px;
+	width: 700px;
+	height: 700px;
+/*	border: solid #fff 1px; */
+}
+
+/* マンセルカラーチャート本体 */
+#colorchart {
+	position:absolute;
+	top: 30px;
+	left: 50px;
+	width: 492px;
+	height: 492px;
+/*	border: solid #f22 1px; */
+}
+
+/* マンセルカラーチャート各セル */
+.colorcell {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+/*	border: #999 1px solid;  */
+	width: 52px;
+	height: 52px;
+	font-size: 0.8em;
+}
+
+/* マンセルカラーチャートY軸 */
+#cc_y_axis {
+	position:absolute;
+	top: 30px;
+	left: 20px;
+	width: 20px;
+	height: 492px;
+/*	border: solid #2f2 1px; */
+}
+
+/* マンセルカラーチャートX軸 */
+#cc_x_axis {
+	position:absolute;
+	top: 532px;
+	left: 50px;
+	width: 550px;
+	height: 20px;
+/*	border: solid #2f2 1px; */
+}
+
+/* マンセルカラーチャートY軸各目盛り */
+.cc_y {
+	margin: 16px 0px 33px 6px; 
+	width: 12px;
+	height: 20px;
+	color: #ccc;
+	font-size: 0.7em;
+	border: solid 1px #000; 
+}
+
+/* マンセルカラーチャートX軸各目盛り */
+.cc_x {
+	margin: 6px 16px 0px 17px; 
+	width: 20px;
+	height: 12px;
+	float: left;
+	color: #ccc;
+	font-size: 0.7em;
+	border: solid 1px #000; 
+}
+
+/* カラーグローブ本体 */
+#colorglobe {
+	position:absolute;
+	top: 30px;
+	left: 50px;
+	width: 594px;
+	height: 594px;
+/*	border: solid #22f 1px; */
+}
+
+/* カラーグローブ各セル */
+.globecell {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+/*	border: #999 1px solid;  */
+	background: #990000;
+	width: 54px;
+	height: 54px;
+	font-size: 0.8em;
+}
+
+/* カラーグローブY軸 */
+#cg_y_axis {
+	position:absolute;
+	top: 30px;
+	left: 20px;
+	width: 20px;
+	height: 604px;
+	border-right: solid #ccc 1px;
+/*	border: solid #f2f 1px;  */
+}
+
+/* カラーグローブX軸 */
+#cg_x_axis {
+	position:absolute;
+	top: 634px;
+	left: 40px;
+	width: 650px;
+	height: 20px;
+	border-top: solid #ccc 1px;
+/*	border: solid #f2f 1px;  */
+}
+
+/* カラーグローブY軸各目盛り */
+.cg_y {
+	position: absolute;
+	margin-top: 16px;
+	left: 0px;
+	width: 12px;
+	height: 20px;
+	color: #ccc;
+	font-size: 0.7em;
+	text-align: right;
+	border: solid 1px #000; 
+}
+
+/* カラーグローブY軸各目盛り個別位置 */
+#cg_y_m2 { top:72px; }
+#cg_y_m1 { top:198px; }
+#cg_y_0 { top:270px; }
+#cg_y_1 { top:342px; }
+#cg_y_2 { top:468px; }
+
+/* カラーグローブX軸各目盛り */
+.cg_x {
+	position: absolute;
+	top: 6px;
+	margin-left: 30px;
+	width: 20px;
+	height: 12px;
+	color: #ccc;
+	font-size: 0.7em;
+	border: solid 1px #000; 
+}
+
+/* カラーグローブX軸各目盛り個別位置 */
+#cg_x_3 { left:0px; }
+#cg_x_2 { left:90px; }
+#cg_x_1 { left:180px; }
+#cg_x_0 { left:270px; }
+#cg_x_m1 { left:360px; }
+#cg_x_m2 { left:450px; }
+#cg_x_m3 { left:540px; }
+
+/* カラーグローブY軸ラベル */
+#cg_y_label {
+	position: absolute;
+	top: 5px;
+	left: 30px;
+	color: #ccc;
+	font-size: 0.8em;
+}
+
+/* カラーグローブX軸ラベル */
+#cg_x_label {
+	position: absolute;
+	top: -20px;
+	right: 5px;
+	color: #ccc;
+	font-size: 0.8em;
+}
+
+/* カラーグローブ輪郭線用キャンバス */
+#colorglobe_canvas {
+	position:absolute;
+	top: 30px;
+	left: 50px;
+/*	border: solid #00f 1px; */
+}
+
+/**
+* 三色配色グローブ
+**/
+#wrap_tricolorglobe {
+	position: relative;
+	top: 50px;
+	left: 25px;
+	margin-bottom: 100px;
+	width: 900px;
+/*	height: 900px; */
+/*	border: solid 2px #f00; */
+	background: #000; 
+}
+
+#tricolorglobe_title {
+	position: relative;
+	top: 20px;
+	left: 20px; 
+	font-size: 1.5em;
+	color: #fff;
+}
+
+#tricolorglobe_area {
+	position: relative;
+	top: 20px;
+	left: 0px; 
+	width: 900px;
+	height: 700px; 
+/*	border: solid 2px #0f0; */
+	background: #000; 
+}
+
+/* 三色配色の枠 */
+.tg_cell_cnt {
+	margin: 0px 5px 0px 10px;
+	width: 126px;
+	height: 42px;
+	float: left;
+	border: solid 2px #333; 
+	color: #fff;
+	font-size: 0.7em;
+}
+
+#tg_01cut {
+	position: absolute;
+	top: 80px;
+	left: 260px;
+}
+#tg_02rom {
+	position: absolute;
+	top: 20px;
+	left: 380px;
+}
+#tg_03nob {
+	position: absolute;
+	top: 80px;
+	left: 500px;
+}
+#tg_04smo {
+	position: absolute;
+	top: 140px;
+	left: 620px;
+}
+#tg_05cls {
+	position: absolute;
+	top: 140px;
+	left: 140px;
+}
+#tg_06sca {
+	position: absolute;
+	top: 200px;
+	left: 280px;
+}
+#tg_07fem {
+	position: absolute;
+	top: 140px;
+	left: 380px;
+}
+#tg_08sel {
+	position: absolute;
+	top: 200px;
+	left: 480px;
+}
+#tg_09ele {
+	position: absolute;
+	top: 240px;
+	left: 740px;
+}
+#tg_10spo {
+	position: absolute;
+	top: 240px;
+	left: 20px;
+}
+#tg_11cas {
+	position: absolute;
+	top: 260px;
+	left: 160px;
+}
+#tg_12tra {
+	position: absolute;
+	top: 320px;
+	left: 240px;
+}
+#tg_13nat {
+	position: absolute;
+	top: 260px;
+	left: 380px;
+}
+#tg_14elg {
+	position: absolute;
+	top: 320px;
+	left: 560px;
+}
+#tg_15dyn {
+	position: absolute;
+	top: 400px;
+	left: 160px;
+}
+#tg_16eth {
+	position: absolute;
+	top: 380px;
+	left: 300px;
+}
+#tg_17cla {
+	position: absolute;
+	top: 440px;
+	left: 380px;
+}
+#tg_18gor {
+	position: absolute;
+	top: 380px;
+	left: 500px;
+}
+#tg_19wld {
+	position: absolute;
+	top: 500px;
+	left: 280px;
+}
+#tg_20dan {
+	position: absolute;
+	top: 560px;
+	left: 380px;
+}
+#tg_21hmo {
+	position: absolute;
+	top: 500px;
+	left: 540px;
+}
+#tg_22for {
+	position: absolute;
+	top: 440px;
+	left: 680px;
+}
+
+#tg_huecircle {
+	position: relative;
+	bottom: 20px;	
+}
+
+/**
+* テイスト別三色配色
+**/
+#wrap_tricolor {
+	position: relative;
+
+	margin: 5px 10px 100px 25px;
+	width: 900px;
+/*	height: 780px;  */
+/*	border: solid 1px #ff0; */
+	background: #000; 
+}
+
+#tricolor_title {
+	position: relative;
+	top: 20px;
+	left: 20px; 
+	font-size: 1.5em;
+	color: #fff;
+}
+
+#select_taste {
+	position: relative;
+	top: 30px;
+	left: 20px;
+}
+
+#tricolor_area {
+	position: relative;
+	top: 40px;
+	left: 0px; 
+	width: 900px;
+	height: 500px; 
+/*	border: solid 1px #ff0; */
+	background: #000; 
+}
+
+#tricolor_area_init {
+	position: relative;
+	top: 40px;
+	left: 40px; 
+	width: 800px;
+	height: 300px; 
+	border: dashed 1px #fff;
+	text-align: center;
+	line-height:300px;
+	font-size: 3em;
+	color: #fff;
+}
+
+.tricolor_row {
+	margin: 10px 5px 10px 15px;
+	width: 126px;
+	height: 42px;
+	float: left;
+	border: solid 2px #333; 
+}
+
+.tricolor_cell {
+	margin: 0px;
+	width: 42px;
+	height: 42px;
+	float: left;
+}
+
+/**
+* footer
+**/
+#footer {
+	margin: 10px 0px 10px 0px;
+	padding: 10px;
+	clear: both;
+	text-align: center;
+	font-size: 0.8em;
+}
+
+
+/**
+* others
+**/
+#debug {
+	margin: 0px 10px 10px 10px;
+/*	border: solid #0f0 1px; */
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="ucc.js"></script>
+        <link rel="stylesheet" type="text/css" href="ucc.css">
+        <title>Color & Pattern Lab / Ultimate Color Comb</title>
+    </head>
+
+    <body>
+
+        <div id="wrap">
+            <!-- タイトルエリア -->
+            <div id="top_title"><a href="index.html"><img src="image/site_title.jpg" alt="color & pattern lab"></a><p id="top_title_str">β-virsion</p></div>
+            <!-- カラーグローブとマンセルカラーチャート -->
+            <div id="wrap_content">
+
+                <!-- モード切り替えボタン -->
+                <div id="chartmodeswitch"><form><input type="button" value="ColorGlobe" onClick="onColorGlobeClicked()"><input type="button" value="MunsellColorChart" onClick="onMunsellClicked()"></form></div>
+                <!-- 色相リストエリア -->
+                <div id="huecircle" class="huecircle"></div>
+
+                <!-- メイン -->
+                <div id="wrap_main">
+                    <!-- 色情報ラベル -->
+                    <div id="huename">2.5R</div>
+                    <div id="hvc_str"></div>
+                    <!-- MunsellColorChart/ColorGlobe表示エリア -->
+                    <div id="wrap_chart">
+                        <div id="cc_y_axis">
+                            <div class="cc_y">9</div>
+                            <div class="cc_y">8</div>
+                            <div class="cc_y">7</div>
+                            <div class="cc_y">6</div>
+                            <div class="cc_y">5</div>
+                            <div class="cc_y">4</div>
+                            <div class="cc_y">3</div>
+                            <div class="cc_y">2</div>
+                            <div class="cc_y">1</div>
+                        </div>
+                        <div id="colorchart"></div>
+                        <div id="cc_x_axis">
+                            <div class="cc_x">0</div>
+                            <div class="cc_x">2</div>
+                            <div class="cc_x">4</div>
+                            <div class="cc_x">6</div>
+                            <div class="cc_x">8</div>
+                            <div class="cc_x">10</div>
+                            <div class="cc_x">12</div>
+                            <div class="cc_x">14</div>
+                            <div class="cc_x">16</div>
+                        </div>
+                        <canvas id="colorglobe_canvas" width="594" height="594"></canvas>
+                        <div id="cg_y_axis">
+                            <div id="cg_y_label">Value(Brightness) Contrast</div>
+                            <div class="cg_y" id="cg_y_m2">-2</div>
+                            <div class="cg_y" id="cg_y_m1">-1</div>
+                            <div class="cg_y" id="cg_y_0">0</div>
+                            <div class="cg_y" id="cg_y_1">1</div>
+                            <div class="cg_y" id="cg_y_2">2</div>
+                        </div>
+                        <div id="colorglobe"></div>
+                        <div id="cg_x_axis">
+                            <div class="cg_x" id="cg_x_3">3</div>
+                            <div class="cg_x" id="cg_x_2">2</div>
+                            <div class="cg_x" id="cg_x_1">1</div>
+                            <div class="cg_x" id="cg_x_0">0</div>
+                            <div class="cg_x" id="cg_x_m1">-1</div>
+                            <div class="cg_x" id="cg_x_m2">-2</div>
+                            <div class="cg_x" id="cg_x_m3">-3</div>
+                            <div id="cg_x_label">Chroma(Saturation) Contrast</div>
+                        </div>
+                    </div>
+                </div> <!-- wrap_main -->
+            </div> <!-- wrap_content -->
+
+            <!-- 三色配色グローブ -->
+            <div id="wrap_tricolorglobe">
+                <p id="tricolorglobe_title">3 colors combinations of each TASTE</p>
+                <div id="tricolorglobe_area">
+                    <div id="tg_01cut" class="tg_cell_cnt">CUT</div>
+                    <div id="tg_02rom" class="tg_cell_cnt">ROM</div>
+                    <div id="tg_03nob" class="tg_cell_cnt">NOB</div>
+                    <div id="tg_04smo" class="tg_cell_cnt">SMO</div>
+                    <div id="tg_05cls" class="tg_cell_cnt">CLS</div>
+                    <div id="tg_06sca" class="tg_cell_cnt">SCA</div>
+                    <div id="tg_07fem" class="tg_cell_cnt">FEM</div>
+                    <div id="tg_08sel" class="tg_cell_cnt">SEL</div>
+                    <div id="tg_09ele" class="tg_cell_cnt">ELE</div>
+                    <div id="tg_10spo" class="tg_cell_cnt">SPO</div>
+                    <div id="tg_11cas" class="tg_cell_cnt">CAS</div>
+                    <div id="tg_12tra" class="tg_cell_cnt">TRA</div>
+                    <div id="tg_13nat" class="tg_cell_cnt">NAT</div>
+                    <div id="tg_14elg" class="tg_cell_cnt">ELG</div>
+                    <div id="tg_15dyn" class="tg_cell_cnt">DYN</div>
+                    <div id="tg_16eth" class="tg_cell_cnt">ETH</div>
+                    <div id="tg_17cla" class="tg_cell_cnt">CLA</div>
+                    <div id="tg_18gor" class="tg_cell_cnt">GOR</div>
+                    <div id="tg_19wld" class="tg_cell_cnt">WLD</div>
+                    <div id="tg_20dan" class="tg_cell_cnt">DAN</div>
+                    <div id="tg_21hmo" class="tg_cell_cnt">HMO</div>
+                    <div id="tg_22for" class="tg_cell_cnt">FOR</div>
+
+                </div>
+            </div>
+
+
+            <!-- テイスト別三色配色 -->
+            <div id="wrap_tricolor">
+
+                <p id="tricolor_title">3 colors combinations according to TASTES</p>
+                <form id="select_taste">
+                    <p>
+                        <select name="taste" onChange="onChangeTaste(this.value)">
+                            <option value="init">select TASTE !</option>
+                            <option value="01cut">01 cute</option>
+                            <option value="02rom">02 romantic</option>
+                            <option value="03nob">03 noble</option>
+                            <option value="04smo">04 soft modern</option>
+                            <option value="05cls">05 clear sporty</option>
+                            <option value="06sca">06 soft casual</option>
+                            <option value="07fem">07 feminine</option>
+                            <option value="08sel">08 soft elegant</option>
+                            <option value="09ele">09 elegant</option>
+                            <option value="10spo">10 sporty</option>
+                            <option value="11cas">11 casual</option>
+                            <option value="12tra">12 traditional</option>
+                            <option value="13nat">13 natural</option>
+                            <option value="14elg">14 elegant gorgeous</option>
+                            <option value="15dyn">15 dynamic</option>
+                            <option value="16eth">16 ethnic</option>
+                            <option value="17cla">17 classic</option>
+                            <option value="18gor">18 gorgeous</option>
+                            <option value="19wld">19 wild</option>
+                            <option value="20dan">20 dandy</option>
+                            <option value="21hmo">21 hard modern</option>
+                            <option value="22for">22 formal</option>
+
+                        </select>
+                    </p>
+                </form>
+
+                <div id="tricolor_area">
+                </div>
+            </div>
+
+            <div id="footer"><a href="http://taste22.co.jp/">Copyright © Yoshika & Taste Scale 22 Co. Ltd.</a></div>
+        </div>          
+        <!-- デバッグ用エリア -->
+        <!-- <div id="debug">デバッグ領域〜！</div> -->
+
+
+        <script type="text/javascript">
+
+            /* 初期表示はColorGlobe 2.5R */
+            window.onload = function() {
+                drawHueCircle();
+                drawColorGlobeLines();
+
+                /* 色相リストをクリックしてカラーチャートを表示 */
+                var hue_id_list = getHueIDList();
+                for (var i = 0; i < hue_id_list.length; i++) {
+                    var hue_id = hue_id_list[i];
+
+                    addListener(document.getElementById(hue_id),
+                            "click",
+                            (function(hue_id) {
+                                return function() {
+                                    drawColorChart(hue_id);
+                                    drawGlobe3(hue_id);
+                                    showHueString(hue_id);
+                                    addListenerShowHVCStr(hue_id);
+                                    removeElement('hvc_str');
+                                };
+                            })(hue_id)
+                            );
+
+                }
+
+                drawGlobe3('hue2_5_R');
+                drawColorChart('hue2_5_R');
+                showHueString('hue2_5_R');
+                swithChartMode('globe');
+                addListenerShowHVCStr('hue2_5_R');
+                onChangeTaste('init');
+                cloneElement('wrap_tricolorglobe', 'huecircle');
+                drawTricolorGlobe('hue2_5_R');
+
+                for (var i = 0; i < hue_id_list.length; i++) {
+                    var hue_id = 'tg_' + hue_id_list[i];
+
+                    addListener(document.getElementById(hue_id),
+                            "click",
+                            (function(hue_id) {
+                                return function() {
+                                    drawTricolorGlobe(hue_id);
+                                };
+                            })(hue_id)
+                            );
+
+                }
+
+            };
+        </script>
+
+    </body>
+</html>
+
+
+
