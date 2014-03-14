@@ -1,4 +1,6 @@
-UltimateColorComb
+#UltimateColorComb
 =================
 
-proposes the color combinations based on brightness contrast and chroma contrast
+'UltimateColorComb' proposes the color combinations based on brightness contrast and chroma contrast.
+
+
